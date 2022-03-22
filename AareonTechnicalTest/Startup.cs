@@ -1,3 +1,5 @@
+using AareonTechnicalTest.Services;
+using ASPNetCoreWebAPiDemo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +28,12 @@ namespace AareonTechnicalTest
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AareonTechnicalTest", Version = "v1" });
+               
             });
+            services.AddScoped<ITicketService, TicketService>();
+            services.AddScoped<INoteService, NoteService>();
+           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,6 +11,11 @@ namespace AareonTechnicalTest.Models
                 {
                     entity.HasKey(e => e.Id);
                 });
+
+            modelBuilder.Entity<Ticket>()
+             .HasMany(c => c.Notes);
+            
+
         }
     }
 }
